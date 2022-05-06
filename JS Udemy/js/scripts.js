@@ -214,4 +214,111 @@ console.log(temperature);
 // Null- not exactly a datatype but an object.
 temperature = null;
 console.log(temperature); // The console will show null
-console.log(typeof temperature); // The console will show object - which could be misleadin
+console.log(typeof temperature); // The console will show object - which could be misleading
+
+
+// V15- Functions
+
+
+/* Functions are blocks of code designed to perform a specific task.
+ Functions can help organize the code, avoid repetition and reduce the complexity of the code.
+    We use the function keyword to create a function.
+    Then we name the function following the same rules as for naming variables.
+    Inside parenthesis we'll add the arguments (or parameters) of the function. Even if the function has no arguments, like above, we need to open and close parenthesis when creating and when invoking it.
+    Inside the curly braces '{ }' we'll write the block of code we want to be executed every time the function is invoked.
+    Semicolons are not needed at the end of function the declarations
+
+Function arguments
+    The arguments of the function are like variables that can be used inside the functions  
+*/
+
+
+
+function sumNumbers() { //Executing a function
+    var num1 = 5;
+    var num2 = 2;
+    sum = num1+num2;
+    console.log(sum);
+}
+
+sumNumbers();
+/* 
+The return statement
+    Our function is now dynamic but it's performing only one task: sending the result to the console.
+    This can be useful for testing purposes but not more than that.
+    It would be good if our function could return the value so we could do anything we want with it.
+*/
+function sumArgs(num1,num2){
+    // console.log(num1+num2);
+    return num1+num2;
+}
+
+console.log(sumArgs(23,45));
+
+// Quiz
+// document.getElementById("sum_result").innerHTML = sumArgs(-27,55);
+
+
+
+// L16 Data Types - Arrays
+/* 
+Arrays are ordered sequences of values.
+Those values can be of any data type and are separated by comma. 
+Arrays have to be declared inside braces.
+Like strings, arrays also have length and their elements have their own indexes.
+Array elements can also be arrays(Multi Dimensional Arrays) and objects.
+*/
+
+var primeNumbers = [ 2, 3, 5, 7, 11, 13 ];
+
+console.log(typeof(primeNumbers))
+console.log(primeNumbers[3])
+ 
+
+/* 
+Array operations
+    Push - Add elements to the end of an array
+    Pop - Remove the last element of an array
+    Shift - Remove the first element of an array
+    Unshift - Add elements to the beginning of an array
+*/
+
+
+var courses = [ "HTML", "Python", "PHP" ];
+
+courses.push("Javascript");
+
+console.log(courses);  // The console will show [ "HTML", "Python", "PHP", "Javascript" ]
+
+courses.unshift("Bootstrap");
+
+console.log(courses);  // The console will show [ "Bootstrap", "HTML", "Python", "PHP", "Javascript" ]
+
+courses.pop();
+
+console.log(courses);  // The console will show [ "Bootstrap", "HTML", "Python", "PHP" ]
+
+courses.shift();
+
+console.log(courses);  // The console will show [ "HTML", "Python", "PHP" ]
+
+
+// It's also possible to redefine elements using the index notation
+
+var ingredients = [ "bread", "cheese", "ham" ];
+
+ingredients[0] = "whole bread";
+
+console.log(ingredients);  // The console will show [ "whole bread", "cheese", "ham" ]
+
+// Slicing
+
+var students = [ "Peter" , "Joana", "Andrew", "Julio", "Kate", "Marie" ];
+console.log( students.slice(0,3) ); // The console will show [ "Peter" , "Joana", "Andrew" ]
+// 0th index will be included and it goes upto 3rd index (3 not included). If the end numberis not included, then the slicing occurs till the last index.
+
+// We can also use negative numbers to start counting backwards from the end of an array.
+//  To get the last three elements of an array we do:
+console.log( students.slice(-3,) );
+
+// Slice method can be applied to string as well.
