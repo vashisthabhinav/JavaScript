@@ -322,3 +322,107 @@ console.log( students.slice(0,3) ); // The console will show [ "Peter" , "Joana"
 console.log( students.slice(-3,) );
 
 // Slice method can be applied to string as well.
+
+
+// V17 Data Types - Objects
+
+/* 
+They are a key value pair - Just like dictionary in python
+Objects, like arrays, are lists of elements. 
+But unlike arrays, objects are not ordered. Instead of identifying elements by index, we identify them by key.
+So an object is a list of key / value pairs separated by colon (:).
+Objects have to be declared inside curly braces { }.
+*/
+
+var student = {
+    'name': 'Abhinav Vashisth',
+    'yearOfBirth': 2002,
+    'ID': 'SBJ0001',
+    'role': 'IT Enthusiast'
+};
+
+// Objects keys are also called properties. To access the properties we can use braces or the dot notation:
+nameOfTheStudent1 = student['name']
+nameOfTheStudent2 = student.name
+console.log(nameOfTheStudent1)
+console.log(nameOfTheStudent2)
+
+//Important: the dot notation only works with properties that follow the variables naming rules.
+var test = {
+    'property1': 'Some value',
+    '2a': 'Some other value',
+    09335: 'Another value',
+    'hello-world': 'Last value'
+}; 
+
+// 'property1' can be retrieved using the dot notation:
+
+console.log( test.property1 );  // The console will show 'Some value'
+
+// The other ones can't because they don't follow the naming rules. They can only be retrieved with braces.
+
+console.log( test['hello-world'] ); // The console will show 'Last value'
+
+student.role = 'IT Manager';  // alter a value
+student.passport = 'KV09888';  // add a new property
+
+console.log(student); 
+
+/* 
+{name: 'Abhinav Vashisth', 
+yearOfBirth: 2002, 
+ID: 'SBJ0001', 
+role: 'IT Manager', 
+passport: 'KV09888'}
+*/
+
+
+
+var courses = [
+    {
+        'title': 'Learn code in Python 3',
+        'reviews': 6802,
+        'students': 130129,
+        'categories': ['programming', 'technology']
+    },
+
+    {
+        'title': 'Learn PHP -  Beginner to Advanced',
+        'reviews': 1204,
+        'students': 30521,
+        'categories': ['web development', 'programming']
+    },
+
+    {
+        'title': 'Learn Microsoft Excel 2020',
+        'reviews': 4209,
+        'students': 18560,
+        'categories': ['productivity', 'business']
+    }
+    
+];
+
+/* 
+Therefore we can conclude the following:
+    The courses variable is an array containing 3 elements.
+    The elements of courses array are objects.
+    Each of these objects has 4 elements
+    The objects have values of different data types. Strings ('title'), numbers ('reviews' and 'students') and arrays ('categories')
+*/
+
+// To access web development from Learn PHP in the courses
+
+try1 = courses[1].categories[0];
+console.log(try1)
+// To alter a value
+try2 = courses[2].title = "Learn Microsoft Excel 2022";
+console.log(courses)
+
+/*
+Some other aspects worth remembering:
+    Arrays are identified by braces [ ].
+    Arrays are ordered lists of values separated by comma.
+    Objects are identified by curly braces { }.
+    Objects elements are key / value pairs separated by colon.
+    Objects elements are separated by comma.
+*/
