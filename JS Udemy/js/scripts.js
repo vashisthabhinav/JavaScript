@@ -426,3 +426,51 @@ Some other aspects worth remembering:
     Objects elements are key / value pairs separated by colon.
     Objects elements are separated by comma.
 */
+
+
+// **************************************************************************
+// SECTION - 2;
+// **************************************************************************
+
+// Lesson-16 Events
+
+// document.getElementById("click-me").onclick = function() {
+//     // onclick executes this code when it is clicked.
+//     alert("You clicked the button")
+// }
+
+document.getElementById("hover-me").onmouseover = function() {
+    // onmouseover executes this code when it is hovered.
+    alert("You moved the cursor over me.")
+}
+document.getElementById("leave-me").onmouseout = function() {
+    // onmouseout executes this code when we move the pointer from the button.
+    alert("You moved the cursor out of me.")
+}
+
+{/* <button id="click-me">Click here</button>
+    <button id="hover-me">Move the cursor over here</button>
+    <button id="leave-me">Move the cursor out of here</button> 
+*/}
+
+// onkeydown
+// The onkeydown event can be applied to a specific element like a form field, or to the document object.
+
+document.onkeydown = function(event) {
+    // alert('You pressed a key');
+    // console.log(event);
+    console.log(event.keyCode);
+
+    if(event.keyCode == 65){
+        alert("You just pressed the A key.")
+    }else{
+        console.log("You just pressed another key.")
+    }
+};
+
+// Another way of adding event in the webpage is:
+//      First add onclick() in the HTML. --> <button onclick="show_alert()" id="click-me">Click here</button>
+//      Then add the code for it in the js
+show_alert(){
+    alert("You clicked the button.")
+}
