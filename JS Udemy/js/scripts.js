@@ -474,3 +474,34 @@ document.onkeydown = function(event) {
 show_alert(){
     alert("You clicked the button.")
 }
+
+// *****************************
+// L - 17 
+// V23 - CSS Manipulation
+// *****************************
+
+/* 
+With Javascript we can manipulate the CSS of any element of the page. 
+For this, we just need to use the style property of the elements.
+The style property is an object that has the CSS properties.
+*/ 
+
+document.getElementById("color_button").onclick = function() {
+    document.getElementById("color_button").style['background-color'] = "yellow";// or style.backgroundColor
+    document.getElementById("color_button").style.transform = "translateX(100px)";
+}
+
+// Another short methods of writing the code:
+
+
+document.getElementById("color_button").onclick = function() {
+    this.style['background-color'] = "yellow";// or style.backgroundColor
+    this.style.transform = "translateX(100px)";
+}
+
+var button = document.getElementById("color-button");
+
+button.onclick = function() {
+    button.style['background-color'] = "yellow";// or style.backgroundColor
+    button.style.transform = "translateX(100px)";
+}
