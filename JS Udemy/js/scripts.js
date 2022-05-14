@@ -505,3 +505,33 @@ button.onclick = function() {
     button.style['background-color'] = "yellow";// or style.backgroundColor
     button.style.transform = "translateX(100px)";
 }
+
+// *****************************
+// L - 18 
+// V24 - More getElement Methods
+// *****************************
+
+/* 
+getElementsByClassName
+    This method selects elements by class. 
+    The difference now is that classes are not unique, we can have multiple elements sharing the same class. 
+    Therefore, this method will always return an array containing the HTML elements that have that class.
+*/
+
+var element1 = document.getElementsByClassName("example");
+
+console.log(element1);
+element1[0].innerHTML = "Changing the first line of the code.";
+
+
+/* 
+getElementsByTagName
+    This methods works just like the previous one, but this time we'll select element using the tag name (div, h1, p, img, etc).
+*/
+
+var paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs);
+
+// The console will show an array: [ {...}, {...}, {...} ]
+
+console.log((25/98)*100)
