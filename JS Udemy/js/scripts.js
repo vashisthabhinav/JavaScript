@@ -534,4 +534,52 @@ console.log(paragraphs);
 
 // The console will show an array: [ {...}, {...}, {...} ]
 
-console.log((25/98)*100)
+
+// *****************************
+// L - 19 
+// V25 - For and For/In Loops
+// *****************************
+
+/* 
+Loops
+    Loops are structures of repetition. 
+    If we want to repeat a statement five times, we don't have to write it five times, we just need to run a loop.
+    We can also use loops to run through the elements of an array. 
+    No matter the size of the array, we just need to write the statements once.
+*/
+
+// For Loop
+
+for (var a = 0; a < 5 ; a++) {
+    console.log(a);
+} 
+
+var courses = [ "HTML", "Python", "PHP", "CSS", "JS","React", "JQuery", "Bootstrap"];
+
+for (var i = 0; a < courses.length; a++){
+    console.log(courses[a]);
+}
+
+/* 
+For/In Loop
+    The for/in loop comes handy when we need to run through objects, since this kind of data type doesn't have the length property.
+*/
+
+var car = {
+    'Year': 2018,
+    'Model': 'Evoke',
+    'Manufacturer': 'Land Rover',
+    'FuelType': 'Diesel'
+}
+
+for (var prop in car) {
+    console.log( prop + ': ' + car[prop] );
+}
+
+// Loops and getElementsByMethod
+
+var elements = document.getElementsByClassName("example");
+for(var i = 0; i<elements.length;i++){
+    elements[i].style.color = "orange";
+    elements[i].style['font-weight'] = "bold";
+}
