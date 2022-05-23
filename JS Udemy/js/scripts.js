@@ -583,3 +583,28 @@ for(var i = 0; i<elements.length;i++){
     elements[i].style.color = "orange";
     elements[i].style['font-weight'] = "bold";
 }
+
+// *****************************
+// L - 20 
+// V26 - While and dowhile loops
+// *****************************
+
+
+//While Loop
+/*
+The logic is the same but just the condition is written inside parenthesis.
+The startinf variable (var count = 0) needs to be declared before writing the loop and the incremental operator should be written inside the loop.
+*/
+var count = 0;
+while(count<5){
+    console.log(count++);
+}
+/*
+Do/while loop
+The do/while loop works the same way, the only difference is that the condition is written at the end of the loop.
+This means that this loop always runs at least once, before testing the condition.
+*/
+count = 20;
+do{
+    console.log(count++);
+} while(count<5);
