@@ -781,7 +781,7 @@ for(var i=0;i<employees.length;i++){
 
 // *****************************
 // L - 23 
-// V30 - Conditionals
+// V30 - Global and Local Scope
 // *****************************
 
 
