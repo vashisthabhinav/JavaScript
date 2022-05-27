@@ -849,3 +849,287 @@ for(let i = 0; i<3;i++){
 
 const PI = 3.1415;
 // PI = 0;//This will give an error
+
+// *****************************
+// L - 25 
+// V35 - BOM - Browser Object Model
+// *****************************
+
+console.log( window.innerWidth );  
+    /* This property returns the internal width of the browser's window  */
+
+console.log( window.innerHeight );  
+    /* This property returns the internal height of the browser's window  */
+
+// The alert method and the console.log method are a part of the widow object. So intead of directly writing alert, we can say window.alert()
+// window.alert("A")
+window.console.log("Alert")
+
+
+// All the global varaiables are also stored in the window object.
+var myName = "Tom";
+// This means that if you are creating a new variable called innerWidth, it is going to overwrite the original property from the window objects, so extra care should be taken while writing the variables.
+
+//onmousemove
+window.onmousemove = function(e){
+    console.log(e.pageY);
+    console.log(e.pageX);
+    if(e.pageY<50){
+        alert("Reached the top")
+    }
+}
+
+
+// *****************************
+// L - 26 
+// V36 - Date and Time
+// *****************************
+
+
+// In Javascript we can easily work with Date & Time using the Date class. 
+// To create an object of this type we use the new keyword.
+
+// Creating a Date object
+var dateObj = new Date();
+
+console.log(dateObj)
+//dateObj is just an object.
+console.log(dateObj.getDate());
+console.log(dateObj.getMonth());//Returns from 0-11
+console.log(dateObj.getDay());
+console.log(dateObj.getHours());
+console.log(dateObj.getMilliseconds());
+console.log(dateObj.getTime());//Returns the number of milliseconds since the Epoch(1st Jan, 1970)
+// Epoch is used to set the starting point of counting time.
+/*
+Unix Epoch
+    The Epoch is something present in most programming languages. 
+    We can consider it the starting point of counting the time. 
+    This is useful to do calculations with date and time.
+    Javascript uses the Unix Epoch, which is: Jan 1st, 1970, 00:00:00, UTC.
+
+1 second	        1000
+1 minute	        60000
+1 hour	            3600000
+1 day	            86400000
+1 year (365 days)	31536000000
+*/
+
+// How to calculate how many hours have passed since the Epoch?
+
+var dateObj = new Date();
+
+    dateObj = dateObj.getTime();
+
+    var hours = dateObj / 3600000;
+
+    console.log(Math.floor(hours));
+
+/* 
+How to create a specific date.
+    One numeric argument: milliseconds since the epoch
+    Two numeric arguments: year and month (** Don't forget months go from 0 to 11 **)
+    Three numeric arguments: year, month and day
+    Four numeric arguments: year, month, day and hours
+    Five numeric arguments: year, month, days, hours, minutes
+    Six numeric arguments: year, month, day, hours, minutes and seconds
+
+We can also pass strings as arguments in three different formats:
+    ISO date: "2020-03-18" (YYYY-MM-DD)
+    Short Date: "03/18/2020" (MM/DD/YYYY)
+    Long Date: "Mar 18 2020" or "18 Mar 2020"
+*/
+
+var dateObj = new Date("2020-03-18");
+console.log( dateObj ); 
+//Challenge: Calculating date intervals - If a product is ordered on March 26, 2020 and delivered on April, 02, 2020, how many days does it take to be delivered?
+
+var orderDate = new Date(2020,2,26);
+var deliveryDate = new Date(2020,3,2);
+var noOfDays = (deliveryDate-orderDate)/86400000;
+console.log(Math.floor(noOfDays))
+document.getElementById("delivery_time").innerHTML = Math.floor(noOfDays)
+
+// Now if we have given the number of days it takes to deliver and the delivery date, then finding the order date.
+
+var deliveryDate1 = new Date(2020,3,2);
+var noOfDays1 = 7;
+var orderDate1 = deliveryDate - (noOfDays*86400000);
+var dateObj1 = new Date(orderDate);
+console.log(dateObj1)
+
+
+// *****************************
+// L - 27 
+// V38 - Time Methods
+// *****************************
+
+
+/*
+The window object has two methods that allow us to delay the execution of a block of code or execute it repetitively between an interval of time.
+    setTimeout
+        It accepts two arguments: the function that should be executed after the stipulated time and the stipulated time in milliseconds.
+    setInterval
+        It is similar to the setTimeout, the difference is that it keeps repeating the callback function forever, unless you stop it.
+*/
+
+console.log("Message 1");
+
+// window.setTimeout(function(){},3000); It has two arguments inside the setTimeout function, one is the function(){} and other is 3000 i.e., 3 sec of time delay
+
+window.setTimeout(function(){
+    console.log("Message 2")
+},3000);
+
+// Now one example of Show
+
+document.getElementById("show-loader").onclick = function(){
+    document.getElementById("spinner-loader").style.display = "block";
+    window.setTimeout(function(){
+        document.getElementById("spinner-loader").style.display = "none";
+    },3000);
+}
+
+// setInterval
+
+var count = 0;
+
+// window.setInterval(function(){
+//     console.log(count);
+//     count++;
+// },1000);
+
+// Interepting Time Methods
+
+var timeInterval = window.setInterval(function(){
+    console.log(count);
+    count++;
+    if(count>10){
+        window.clearInterval(timeInterval);
+    }
+},1000);
+
+
+
+// The Watch Challenge (V-39)
+
+function formatTime(number){
+    if(number<10){
+        return "0" + number.toString();
+    }else{
+        return number.toString();
+    }
+}
+
+window.setInterval(function(){
+    var DateObj = new Date();
+    // console.log(DateObj);
+    var hours = DateObj.getHours(); 
+    var minutes = DateObj.getMinutes();
+    var seconds = DateObj.getSeconds();
+    document.getElementById("hours").innerHTML = formatTime(hours);
+    document.getElementById("minutes").innerHTML = formatTime(minutes);
+    document.getElementById("seconds").innerHTML = formatTime(seconds);
+},1000);
+
+
+
+// *****************************
+// L - 28 
+// V40 - Break and Continue
+// *****************************
+
+/*
+Break and Continue
+    The break and continue statements are used mainly with loops and their purpose is either to interrupt the loop or just jump the current iteration.
+
+    Break
+        The break statement interrupts the loop execution or a switch statement.
+    Continue
+        The continue statement is used to jump the current iteration of a loop.
+*/
+
+var x = 0;
+while(x<10){
+    console.log(x)
+    x++;
+    if(x==5) {
+        break;
+    }
+}
+
+var num = 0;
+    while (num < 20) {
+        num++;
+        if (num % 2 != 0) {
+            continue;
+        }
+        console.log(num);
+        //OR
+        /*
+        if(num%2 == 0){
+            console.log(num)
+        }
+        */
+    }
+  
+   
+// *****************************
+// L - 29 
+// V41,42 - Forms
+// *****************************
+ 
+document.getElementById("show_option").onclick = function(){
+
+    var selectField = document.getElementById("options");
+    var selectedOption = selectField.options.selectedIndex;
+    var selectedValue = selectField.options[selectedOption]
+    console.log(selectedValue);
+    console.log(selectedValue.innerHTML);
+    document.getElementById("selected_option").innerHTML = selectedValue.innerHTML;
+
+    // OR
+
+    // var selectedOption = document.getElementById("options").value;
+    // console.log(selectedOption);
+    // We can get the value with less amount of code using this method.
+    // However, the downside of this method is that we cannot use the innerHTML with this.
+};
+
+// Radio Buttons
+
+document.getElementById("show_radio").onclick = function(){
+    var radio = document.getElementsByName("gender");
+    // console.log(radio)
+    
+    var radioSelected;
+
+    for(var i = 0; i < radio.length; i++){
+        if(radio[i].checked){
+            //checked retturns true if that button is checked.
+            radioSelected = radio[i];
+            console.log(radioSelected);
+            console.log(radioSelected.value);
+            document.getElementById("selected_radio").innerHTML = radioSelected.value;
+        }
+    }
+};
+
+// CheckBoxes
+
+
+document.getElementById("show_check").onclick = function(){
+    var check = document.getElementsByName("interest");
+    // console.log(check)
+
+    document.getElementById("selected_check").innerHTML = "<ul>";
+
+    for(var i = 0; i < check.length; i++){
+        if(check[i].checked){
+            //checked retturns true if that button is checked.
+            document.getElementById("selected_check").innerHTML += "<li>" + check[i].value + "</li>";
+        }
+    }
+    document.getElementById("selected_check").innerHTML += "</ul>";
+};
+
