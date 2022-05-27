@@ -1133,3 +1133,40 @@ document.getElementById("show_check").onclick = function(){
     document.getElementById("selected_check").innerHTML += "</ul>";
 };
 
+
+   
+// *****************************
+// L - 30 
+// V43 - Onchange Event
+// *****************************
+
+document.getElementById("education_level").onchange = function(){
+
+    var selectField = document.getElementById("education_level");
+    var selectedOption = selectField.options.selectedIndex;
+    var selectedValue = selectField.options[selectedOption]
+    console.log(selectedValue);
+    console.log(selectedValue.innerHTML);
+    document.getElementById("selected_level").innerHTML = selectedValue.innerHTML;
+};
+
+var check = document.getElementsByName("meal");
+for(var a = 0; a < check.length; a++){
+    check[a].onchange = function(){
+        // console.log("Changed");
+
+        document.getElementById("selected_check").innerHTML = "<ul>";
+
+        for(var b = 0; b < check.length; b++){
+            // We are using the nested loops here because the first loop is only setting the onchange event.
+            // So, by doing this, any element that is changing is going to fire this function because we are applying the onchange to each of these elements.
+            // That is why we needed the first loop
+            // But now inside here is different because now if any of these elements is changing we have to run a loop through each of these elements to check each of them are selected.
+            if(check[b].checked){
+                document.getElementById("selected_check").innerHTML += "<li>" + check[b].value + "</li>";
+            }
+        }
+        document.getElementById("selected_check").innerHTML += "</ul>";
+    }
+}
+
